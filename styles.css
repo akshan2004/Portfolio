@@ -589,6 +589,10 @@ body > .nav__menu {
     border: 4px solid var(--bg-card);
 }
 
+.hero__photo {
+    object-position: 60% 30%;
+}
+
 .hero__photo-placeholder {
     display: flex;
     align-items: center;
@@ -1569,9 +1573,9 @@ body > .nav__menu {
 
 [data-theme="light"] .hero__photo-wrapper {
     box-shadow: 0 10px 40px rgba(79, 70, 229, 0.15);
-    background: rgba(255, 255, 255, 0.5);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    background: var(--gradient);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
 }
 
 [data-theme="light"] #header {
