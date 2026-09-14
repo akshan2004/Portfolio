@@ -6,19 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Akshan B | Portfolio</title>
     <meta name="description"
-        content="Akshan B — Final-year CS student skilled in Python, Java, AI/ML, and full-stack development. Building impactful and scalable software solutions.">
+        content="Akshan B — Computer Science graduate skilled in Python, Java, AI/ML, and full-stack development. Building impactful and scalable software solutions.">
     <meta property="og:title" content="Akshan B — Software Developer Portfolio">
-    <meta property="og:description" content="Final-year Computer Science student & Aspiring Software Developer.">
+    <meta property="og:description" content="Computer Science Graduate & Software Engineer.">
     <meta property="og:type" content="website">
-    <link rel="icon" type="image/jpeg" href="public/tab-icon.jpg">
-    <link rel="shortcut icon" type="image/jpeg" href="public/tab-icon.jpg">
-    <link rel="apple-touch-icon" href="public/tab-icon.jpg">
+    <link rel="icon" type="image/png" href="public/tab-icon-circle.png">
+    <link rel="shortcut icon" type="image/png" href="public/tab-icon-circle.png">
+    <link rel="apple-touch-icon" href="public/tab-icon-circle.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="styles.css?v=3">
+    <link rel="stylesheet" href="styles.css?v=4">
 </head>
 
 <body>
@@ -50,7 +50,7 @@
             </div>
 
             <div class="nav__actions">
-                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle theme">
                     <!-- Moon icon (visible in dark mode) -->
                     <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                         stroke-linecap="round" stroke-linejoin="round">
@@ -70,7 +70,7 @@
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
                     </svg>
                 </button>
-                <button class="nav__hamburger" id="navToggle" aria-label="Open menu">
+                <button class="nav__hamburger" id="navToggle" type="button" aria-label="Open menu" aria-controls="navMenu" aria-expanded="false">
                     <span></span><span></span><span></span>
                 </button>
             </div>
@@ -78,8 +78,8 @@
     </header>
 
     <!-- MOBILE SIDEBAR (outside header to avoid backdrop-filter containing block) -->
-    <div class="nav__menu" id="navMenu">
-        <button class="nav__close" id="navClose" aria-label="Close menu">
+    <div class="nav__menu" id="navMenu" aria-hidden="true">
+        <button class="nav__close" id="navClose" type="button" aria-label="Close menu">
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <line x1="18" y1="6" x2="6" y2="18"></line>
                 <line x1="6" y1="6" x2="18" y2="18"></line>
@@ -98,12 +98,12 @@
 
         <div class="nav__sidebar-footer">
             <div class="nav__socials">
-                <a href="#" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                <a href="https://github.com/akshan2004" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
                     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
                     </svg>
                 </a>
-                <a href="#" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                <a href="https://www.linkedin.com/in/akshan-b-96683a291/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
                     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
                         <rect x="2" y="9" width="4" height="12"></rect>
@@ -123,14 +123,14 @@
             <div class="hero__content">
                 <div class="hero__badge">
                     <span class="hero__badge-dot"></span>
-                    Available for opportunities
+                    Open to full-time opportunities
                 </div>
                 <h1 class="hero__title">
                     Hi, I'm <span class="gradient-text">Akshan B</span>
                 </h1>
-                <p class="hero__subtitle">Computer Science Student &amp; Aspiring Software Developer</p>
+                <p class="hero__subtitle">Computer Science Graduate &amp; Software Engineer</p>
                 <p class="hero__desc">
-                    Motivated and passionate final-year Computer Science student with a strong foundation in Java,
+                    Motivated and passionate Computer Science graduate with a strong foundation in
                     Python, and Data Structures & Algorithms. Skilled in problem-solving, debugging, and building
                     efficient software solutions. Possesses hands-on experience in developing data-driven applications
                     and applying core programming concepts to real-world challenges. Eager to leverage technical skills
@@ -164,9 +164,9 @@
                 <div class="about__grid">
                     <div class="about__info reveal">
                         <p>
-                            Hello! I'm <strong>Akshan B</strong>, a motivated and passionate final-year Computer Science
-                            student at <strong>Sir M Visvesvaraya Institute of Technology, Bengaluru</strong>. I have a
-                            strong foundation in Java, Python, and Data Structures & Algorithms. Skilled in
+                            Hello! I'm <strong>Akshan B</strong>, a motivated and passionate Computer Science
+                            Engineering graduate from <strong>Sir M Visvesvaraya Institute of Technology, Bengaluru</strong>. I have a
+                            strong foundation in Python, and Data Structures & Algorithms. Skilled in
                             problem-solving, debugging, and building efficient software solutions.
                         </p>
                         <p>
@@ -176,7 +176,7 @@
                         </p>
                         <div class="about__stats">
                             <div class="stat">
-                                <span class="stat__number">8.42</span>
+                                <span class="stat__number">8.6</span>
                                 <span class="stat__label">CGPA</span>
                             </div>
                             <div class="stat">
@@ -286,7 +286,7 @@
                                     <polygon
                                         points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
                                 </svg>
-                                CGPA: 8.42
+                                CGPA: 8.6
                             </span>
                         </div>
                     </div>
@@ -325,7 +325,7 @@
                                 the visually impaired using YOLOv8, GPS, ultrasonic sensors, Raspberry Pi, and real-time
                                 voice guidance with safety alerts.</p>
                             <div class="project__links">
-                                <a href="https://github.com/akshan2004/VisionEye.git" target="_blank"
+                                <a href="https://github.com/akshan2004/VisionEye.git" target="_blank" rel="noopener noreferrer"
                                     class="project__link">
                                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                         stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -363,7 +363,7 @@
                                 secure authentication, dynamic dashboards with Chart.js, and a responsive Bootstrap UI
                                 for efficient income and expense management.</p>
                             <div class="project__links">
-                                <a href="https://github.com/akshan2004/Money-Management.git" target="_blank"
+                                <a href="https://github.com/akshan2004/Money-Management.git" target="_blank" rel="noopener noreferrer"
                                     class="project__link">
                                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                         stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -402,7 +402,7 @@
                             <p class="project__desc">An AI-powered chat application that supports text generation, image
                                 generation, and community sharing, built using modern web technologies.</p>
                             <div class="project__links">
-                                <a href="https://github.com/akshan2004/JnanaGPT.git" target="_blank"
+                                <a href="https://github.com/akshan2004/JnanaGPT.git" target="_blank" rel="noopener noreferrer"
                                     class="project__link">
                                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                         stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -439,7 +439,7 @@
                                 stack with Socket.IO. Supports typing indicators, message delivery status, and
                                 WhatsApp-style blue ticks.</p>
                             <div class="project__links">
-                                <a href="https://github.com/akshan2004/Chat-App.git" target="_blank"
+                                <a href="https://github.com/akshan2004/Chat-App.git" target="_blank" rel="noopener noreferrer"
                                     class="project__link">
                                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                         stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -653,7 +653,7 @@
                         </div>
                         <div class="achievement__content">
                             <h3 class="achievement__title">Strong Academic Record</h3>
-                            <p class="achievement__desc">Maintained a CGPA of 8.42 throughout the engineering program,
+                            <p class="achievement__desc">Maintained a CGPA of 8.6 throughout the engineering program,
                                 demonstrating consistent academic performance and dedication to learning.</p>
                         </div>
                     </div>
@@ -748,7 +748,7 @@
             <div class="footer__center">
                 <p class="footer__connect">Let's connect with</p>
                 <div class="footer__socials">
-                    <a href="https://github.com/akshan2004" target="_blank" aria-label="GitHub">
+                    <a href="https://github.com/akshan2004" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                             stroke-linecap="round" stroke-linejoin="round">
                             <path
@@ -756,7 +756,7 @@
                             </path>
                         </svg>
                     </a>
-                    <a href="https://www.linkedin.com/in/akshan-b-96683a291/" target="_blank" aria-label="LinkedIn">
+                    <a href="https://www.linkedin.com/in/akshan-b-96683a291/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                             stroke-linecap="round" stroke-linejoin="round">
                             <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
@@ -773,7 +773,7 @@
         </div>
     </footer>
 
-    <script src="script.js?v=3"></script>
+    <script src="script.js?v=4"></script>
 </body>
 
 </html>

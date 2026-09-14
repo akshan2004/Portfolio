@@ -4,7 +4,12 @@
 
 /* ── Apply saved theme IMMEDIATELY to prevent flash ── */
 (function () {
-  const saved = localStorage.getItem('portfolio-theme');
+  let saved = null;
+  try {
+    saved = localStorage.getItem('portfolio-theme');
+  } catch (error) {
+    saved = null;
+  }
   if (saved) {
     document.documentElement.setAttribute('data-theme', saved);
   } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
@@ -262,6 +267,11 @@ function initCustomCursor() {
 
 /* ── Staggered section reveals with sliding underline ── */
 function initRevealObserver() {
+  if (!('IntersectionObserver' in window)) {
+    document.querySelectorAll('.reveal, .achievement, .education__card').forEach(el => el.classList.add('visible'));
+    return;
+  }
+
   // Keep hero title markup intact (gradient span, no awkward wrapping).
   // We'll rely on the existing CSS fadeUp animations for the hero instead of text-splitting.
   const heroTitle = document.querySelector('.hero__title');
@@ -286,11 +296,11 @@ function initRevealObserver() {
       }
 
       if (el.classList.contains('stat__number')) {
-        const raw = el.dataset.target;
-        const num = parseFloat(raw);
-        if (!isNaN(num)) {
-          const isDecimal = raw.includes('.') && !isNaN(parseFloat(raw));
-          animateCounter(el, raw, isDecimal ? 2 : 0);
+          const raw = el.dataset.target;
+          const num = parseFloat(raw);
+          if (!isNaN(num)) {
+          const decimalPlaces = raw.includes('.') ? (raw.split('.')[1].match(/\d+/)?.[0].length || 0) : 0;
+          animateCounter(el, raw, decimalPlaces);
         } else {
           // Non-numeric stat (e.g. "B.E.") — just reveal it directly
           el.textContent = raw;
@@ -502,26 +512,43 @@ document.addEventListener('DOMContentLoaded', () => {
   const navClose   = document.getElementById('navClose');
 
   /* Theme Toggle */
-  themeToggle.addEventListener('click', () => {
+  if (themeToggle) themeToggle.addEventListener('click', () => {
     const html = document.documentElement;
     const next = html.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
     html.setAttribute('data-theme', next);
-    localStorage.setItem('portfolio-theme', next);
+    try {
+      localStorage.setItem('portfolio-theme', next);
+    } catch (error) {}
   });
 
   /* Cursor Glow disabled for stable static header */
   if (cursorGlow) cursorGlow.style.display = 'none';
 
   /* Mobile Menu */
-  const toggleMenu = () => { navMenu.classList.toggle('show'); navToggle.classList.toggle('open'); document.body.classList.toggle('lock-scroll'); };
-  const closeMenu  = () => { navMenu.classList.remove('show'); navToggle.classList.remove('open'); document.body.classList.remove('lock-scroll'); };
-  navToggle.addEventListener('click', toggleMenu);
+  const setMenuState = (isOpen) => {
+    if (!navMenu || !navToggle) return;
+    navMenu.classList.toggle('show', isOpen);
+    navToggle.classList.toggle('open', isOpen);
+    navToggle.setAttribute('aria-expanded', String(isOpen));
+    navMenu.setAttribute('aria-hidden', String(!isOpen));
+    if (isOpen) {
+      navMenu.removeAttribute('inert');
+    } else {
+      navMenu.setAttribute('inert', '');
+    }
+    document.body.classList.toggle('lock-scroll', isOpen);
+  };
+  const toggleMenu = () => setMenuState(!(navMenu && navMenu.classList.contains('show')));
+  const closeMenu  = () => setMenuState(false);
+  if (navMenu) navMenu.setAttribute('inert', '');
+  if (navToggle) navToggle.addEventListener('click', toggleMenu);
   if (navClose) navClose.addEventListener('click', closeMenu);
   navLinks.forEach(link => link.addEventListener('click', closeMenu));
-  navMenu.addEventListener('click', (e) => { if (e.target === navMenu) closeMenu(); });
+  if (navMenu) navMenu.addEventListener('click', (e) => { if (e.target === navMenu) closeMenu(); });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeMenu(); });
 
   /* Keep Header Static (no scroll-based movement or animation) */
-  header.classList.remove('scrolled');
+  if (header) header.classList.remove('scrolled');
 
   /* Active Nav on Scroll */
   const activateLink = () => {
@@ -553,10 +580,12 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   /* Achievement & education slide-in observer */
-  const slideObs = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (e.isIntersecting) { e.target.classList.add('visible'); slideObs.unobserve(e.target); }
-    });
-  }, { threshold: 0.15 });
-  document.querySelectorAll('.achievement, .education__card').forEach(el => slideObs.observe(el));
+  if ('IntersectionObserver' in window) {
+    const slideObs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); slideObs.unobserve(e.target); }
+      });
+    }, { threshold: 0.15 });
+    document.querySelectorAll('.achievement, .education__card').forEach(el => slideObs.observe(el));
+  }
 });
